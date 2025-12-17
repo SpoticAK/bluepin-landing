@@ -16,7 +16,7 @@ export default function HeroSection() {
       formData.append("source", "hero");
 
       await fetch(
-        "https://script.google.com/macros/s/AKfycbzgBRcH4OZxskzCw8iR-7blzHH18acdRTFfIydKREySffNM0CM5HDRG3RAtpSA7goZ6tA/exec",
+        "https://script.google.com/macros/s/AKfycbyAYJquspKCnjaSFEN0ndhb5a3-mPZgvMYGklIxxU-v0Nb1aeRjTy9T1QnZEDpI_R6Bow/exec",
         {
           method: "POST",
           body: formData,
@@ -33,7 +33,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section style={{ padding: "120px 40px", textAlign: "center" }}>
+    <section style={{ padding: "120px 24px", textAlign: "center" }}>
       {/* Logo + Brand */}
       <div
         style={{
@@ -62,7 +62,7 @@ export default function HeroSection() {
       </div>
 
       {/* Tagline */}
-      <p style={{ marginTop: "6px", fontSize: "18px", color: "#150c59ff" }}>
+      <p style={{ marginTop: "8px", fontSize: "18px", color: "#150c59ff" }}>
         Data for trending products and reliable hyperlocal suppliers.
       </p>
 
@@ -88,7 +88,15 @@ export default function HeroSection() {
           justifyContent: "center",
         }}
       >
-        <div style={{ display: "flex", gap: "12px" }}>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: "12px",
+            width: "100%",
+            maxWidth: "420px",
+          }}
+        >
           <input
             type="email"
             required
@@ -96,11 +104,12 @@ export default function HeroSection() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             style={{
-              width: "280px",
+              flex: "1 1 100%",
               padding: "14px 16px",
               fontSize: "16px",
               borderRadius: "10px",
               border: "1px solid #ccc",
+              width: "100%",
             }}
           />
 
@@ -108,6 +117,7 @@ export default function HeroSection() {
             type="submit"
             disabled={loading}
             style={{
+              flex: "1 1 100%",
               padding: "14px 26px",
               fontSize: "16px",
               borderRadius: "10px",
