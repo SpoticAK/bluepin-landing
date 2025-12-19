@@ -19,6 +19,7 @@ export default function HeroSection() {
         "https://script.google.com/macros/s/AKfycbyAYJquspKCnjaSFEN0ndhb5a3-mPZgvMYGklIxxU-v0Nb1aeRjTy9T1QnZEDpI_R6Bow/exec",
         {
           method: "POST",
+          mode: "no-cors", // 🔥 CRITICAL FIX
           body: formData,
         }
       );
@@ -26,34 +27,44 @@ export default function HeroSection() {
       setEmail("");
       alert("You're on the waitlist 🚀");
     } catch (err) {
-      alert("Network error. Please try again.");
+      // This should rarely trigger now
+      alert("Submission failed. Please try again.");
     }
 
     setLoading(false);
   };
 
   return (
-    <section style={{ padding: "120px 24px", textAlign: "center" }}>
+    <section
+      style={{
+        padding: "120px 20px",
+        textAlign: "center",
+      }}
+    >
       {/* Logo + Brand */}
       <div
         style={{
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          gap: "14px",
+          gap: "12px",
+          flexWrap: "wrap",
         }}
       >
         <img
           src="/logo.png"
           alt="BluePin logo"
-          style={{ height: "52px", width: "auto" }}
+          style={{
+            height: "48px",
+            width: "auto",
+          }}
         />
 
         <h1
           style={{
             fontSize: "48px",
             fontWeight: "700",
-            color: "#0f093cc3",
+            color: "#0f093c",
             lineHeight: "1",
           }}
         >
@@ -62,7 +73,13 @@ export default function HeroSection() {
       </div>
 
       {/* Tagline */}
-      <p style={{ marginTop: "8px", fontSize: "18px", color: "#150c59ff" }}>
+      <p
+        style={{
+          marginTop: "8px",
+          fontSize: "18px",
+          color: "#150c59",
+        }}
+      >
         Data for trending products and reliable hyperlocal suppliers.
       </p>
 
@@ -71,7 +88,7 @@ export default function HeroSection() {
         style={{
           marginTop: "20px",
           fontSize: "20px",
-          maxWidth: "700px",
+          maxWidth: "680px",
           marginInline: "auto",
         }}
       >
@@ -83,7 +100,7 @@ export default function HeroSection() {
       <form
         onSubmit={handleSubmit}
         style={{
-          marginTop: "40px",
+          marginTop: "36px",
           display: "flex",
           justifyContent: "center",
         }}
@@ -91,8 +108,9 @@ export default function HeroSection() {
         <div
           style={{
             display: "flex",
-            flexWrap: "wrap",
             gap: "12px",
+            flexWrap: "wrap",
+            justifyContent: "center",
             width: "100%",
             maxWidth: "420px",
           }}
@@ -104,12 +122,12 @@ export default function HeroSection() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             style={{
-              flex: "1 1 100%",
+              flex: "1",
+              minWidth: "240px",
               padding: "14px 16px",
               fontSize: "16px",
               borderRadius: "10px",
               border: "1px solid #ccc",
-              width: "100%",
             }}
           />
 
@@ -117,16 +135,16 @@ export default function HeroSection() {
             type="submit"
             disabled={loading}
             style={{
-              flex: "1 1 100%",
-              padding: "14px 26px",
+              padding: "14px 24px",
               fontSize: "16px",
               borderRadius: "10px",
-              background: "#181157ff",
+              background: "#181157",
               color: "#fff",
               border: "none",
               fontWeight: "600",
               cursor: "pointer",
               opacity: loading ? 0.7 : 1,
+              whiteSpace: "nowrap",
             }}
           >
             {loading ? "Joining..." : "Join Waitlist"}
