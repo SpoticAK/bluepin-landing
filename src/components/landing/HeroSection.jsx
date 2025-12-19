@@ -12,7 +12,7 @@ export default function HeroSection() {
 
     try {
       await fetch(
-        "https://script.google.com/macros/s/AKfycbyAYJquspKCnjaSFEN0ndhb5a3-mPZgvMYGklIxxU-v0Nb1aeRjTy9T1QnZEDpI_R6Bow/exec",
+        "https://script.google.com/macros/s/AKfycbzgBRcH4OZxskzCw8iR-7blzHH18acdRTFfIydKREySffNM0CM5HDRG3RAtpSA7goZ6tA/exec",
         {
           method: "POST",
           headers: {
