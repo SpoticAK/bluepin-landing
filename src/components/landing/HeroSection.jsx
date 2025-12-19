@@ -11,24 +11,21 @@ export default function HeroSection() {
     setLoading(true);
 
     try {
-      const formData = new FormData();
-      formData.append("email", email);
-      formData.append("source", "hero");
-
       await fetch(
         "https://script.google.com/macros/s/AKfycbyAYJquspKCnjaSFEN0ndhb5a3-mPZgvMYGklIxxU-v0Nb1aeRjTy9T1QnZEDpI_R6Bow/exec",
         {
           method: "POST",
-          mode: "no-cors", // 🔥 CRITICAL FIX
-          body: formData,
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: `email=${encodeURIComponent(email)}&source=hero`,
         }
       );
 
       setEmail("");
       alert("You're on the waitlist 🚀");
     } catch (err) {
-      // This should rarely trigger now
-      alert("Submission failed. Please try again.");
+      alert("Network error. Please try again.");
     }
 
     setLoading(false);
@@ -54,10 +51,7 @@ export default function HeroSection() {
         <img
           src="/logo.png"
           alt="BluePin logo"
-          style={{
-            height: "48px",
-            width: "auto",
-          }}
+          style={{ height: "48px", width: "auto" }}
         />
 
         <h1
