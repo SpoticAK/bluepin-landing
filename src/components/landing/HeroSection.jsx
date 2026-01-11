@@ -26,7 +26,7 @@ export default function HeroSection() {
       }
 
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbzgBRcH4OZxskzCw8iR-7blzHH18acdRTFfIydKREySffNM0CM5HDRG3RAtpSA7goZ6tA/exec",
+        "https://script.google.com/macros/s/AKfycbxX3pAqbfHLwInWaHA4FPrBHQ7Qzb2Lw8LaF3ef5ESWwc3VWDYaq_gUQrbN9LF0ln6DHQ/exec",
         {
           method: "POST",
           body: formData,
